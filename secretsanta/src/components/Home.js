@@ -4,7 +4,7 @@ import './Home.css';
 import Popup from './Popup';
 import Table from './Table';
 import Icons from './Icons';
-import {getGroups, getGroupData} from "../utils/resgisterUser";
+import fetchData from "../utils/fetchData";
 
 export default function Home(){
 
@@ -24,7 +24,7 @@ export default function Home(){
   };
 
   const totalGroups = [
-    'family', 'friends', 'cohorts'
+    'family', 'friends', 'colleagues'
   ]
   const [show, setShow] = useState(false);
   const [id, setId] = useState(null);
@@ -35,7 +35,7 @@ export default function Home(){
 
   useEffect(() => {
     try{
-      getGroups().then(data => {
+      fetchData('/', 'GET', null).then(data => {
         setGroups(data);
       });
     }catch(e){
@@ -43,10 +43,9 @@ export default function Home(){
     }
   })
 
-
   async function displayGroupInfo(id){
     try{
-      let data = await getGroupData(id);
+      let data = await fetchData('/' + id, 'GET', null);
       setGroupsCreated(data);
     }catch(e){
       console.log(e);
