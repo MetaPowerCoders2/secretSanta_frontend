@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './Home.css';
+import Popup from './Popup';
 
 export default function Home(){
 
@@ -21,11 +22,13 @@ export default function Home(){
   const totalGroups = [
     'family', 'friends', 'cohorts'
   ]
-
+  const [show, setShow] = useState(true);
   const [groups, setGroups] = useState(data);
   const [groupsCreated, setGroupsCreated] = useState(totalGroups);
 
   return(
+    <>
+    <Popup show={show} setShow={setShow}/>
     <div className="grid">
       <div className='lateral_menu'>
         <h1 className="text">Your Secret Santa <i className="fa fa-plus-circle add_group"></i></h1>
@@ -69,5 +72,6 @@ export default function Home(){
        </div>
       </div>
     </div>
+    </>
   )
 }
