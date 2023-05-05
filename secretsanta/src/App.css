@@ -5,4 +5,20 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
 
+.background-modal{
+    width: 100%;
+    height: 100vh;
+    color: brown;
+    opacity: 20%;
+  }
+
+i {
+    z-index: 11!important;
+    cursor: pointer;
+  }
+
+  .cursor_pointer{
+    cursor: pointer;
+  }
+
   @import url(https://fonts.googleapis.com/css?family=Roboto:300);

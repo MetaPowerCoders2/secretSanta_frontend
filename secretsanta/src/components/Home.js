@@ -1,9 +1,13 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Home.css';
 import Popup from './Popup';
+import Table from './Table';
+import Icons from './Icons';
+import {getGroups, getGroupData} from "../utils/resgisterUser";
 
 export default function Home(){
+
 
   const data = {
     group_name: 'Family',
@@ -22,55 +26,74 @@ export default function Home(){
   const totalGroups = [
     'family', 'friends', 'cohorts'
   ]
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
+  const [id, setId] = useState(null);
+  const [title, setTitle] = useState(null);
   const [groups, setGroups] = useState(data);
   const [groupsCreated, setGroupsCreated] = useState(totalGroups);
+  const [displayInputs, setDisplayInputs] = useState(true)
+
+  useEffect(() => {
+    try{
+      getGroups().then(data => {
+        setGroups(data);
+      });
+    }catch(e){
+      console.log(e);
+    }
+  })
+
+
+  async function displayGroupInfo(id){
+    try{
+      let data = await getGroupData(id);
+      setGroupsCreated(data);
+    }catch(e){
+      console.log(e);
+    }
+  }
 
   return(
     <>
-    <Popup show={show} setShow={setShow}/>
+    <Popup show={show} setShow={setShow} id={id} title={title} displayInputs={displayInputs}/>
+    <div className={`${show ? 'background-modal' : null}`}>
     <div className="grid">
       <div className='lateral_menu'>
         <h1 className="text">Your Secret Santa <i className="fa fa-plus-circle add_group"></i></h1>
       {groupsCreated.length > 0 && <>
         {groupsCreated.map(group =>
-        <div className='groups_created'>
+        <div className='groups_created cursor_pointer' onClick={() => displayGroupInfo(group.id)}>
         {group}
       </div>)};
       </>}
     </div>
       <div className="display_menu">
         <div className="display_data">
-       {Object.keys(groups).length === 0 && <h1 className="text">PLEASE SELECT A SECRET SANTA GROUP OR CREATE A NEW ONE</h1>}
+       {Object.keys(groups).length === 0 &&
+        <h1 className="text">PLEASE SELECT A SECRET SANTA GROUP OR CREATE A NEW ONE</h1>
+       }
        {Object.keys(groups).length > 0 && <>
-       <h1 className="text">{groups.group_name}</h1>
-          <table>
-            <thead>
-              <tr>
-                <th className='right_item'>Name</th>
-                <th>Email</th>
-              </tr>
-            </thead>
-       {groups.members.map(item =>
-          <tbody>
-            <tr>
-              <td className='right_item'>{item.name}</td>
-              <td>{item.email}</td>
-            </tr>
-          </tbody>  )}
-        </table>
+        <h1 className="text">{groups.group_name}</h1>
+          <Table
+            members={groups.members}
+            setShow={setShow}
+            setId={setId}
+            setTitle={setTitle}
+          />
         </>
        }
-       <div className='icons'>
-        <i className='fas fa-edit'></i>
-        <i className='fas fa-sync'></i>
-        <i className="fa fa-plus-circle"></i>
-       </div>
+      <Icons
+        setShow={setShow}
+        setId={setId}
+        setTitle={setTitle}
+        setDisplayInputs={setDisplayInputs}
+                  />
        <div class="regalo-navidad">
           {/* <img src={require('../pictures/present.jpg')}/> */}
       </div>
        </div>
       </div>
+    </div>
     </div>
     </>
   )
