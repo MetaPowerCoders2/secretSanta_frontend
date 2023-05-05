@@ -6,12 +6,14 @@ import Signin from './components/Signin';
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />}>
-        <Route index element={<Signin />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Signin />} />
+          <Route path='register' element={<Signin />} />
+          <Route path="home" element={<Home />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
