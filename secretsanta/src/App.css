@@ -17,6 +17,21 @@ i {
     cursor: pointer;
   }
 
+  .left{
+    text-align: left;
+  }
+
+  .rigth{
+    text-align: right;
+  }
+
+  .center{
+    text-align: center;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+  }
+
   .cursor_pointer{
     cursor: pointer;
   }

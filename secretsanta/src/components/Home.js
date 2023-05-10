@@ -65,10 +65,6 @@ export default function Home(){
   const [groupsCreated, setGroupsCreated] = useState(totalGroups);
   const [inputs, setInputs] = useState(popupInputs);
 
-  console.log(group);
-  console.log(groups);
-  console.log(groupsCreated);
-
   useEffect(() => {
     try{
       // fetchData('/', 'GET', null).then(data => {
