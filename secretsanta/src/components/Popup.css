@@ -11,7 +11,7 @@
     z-index: 9;
     border: 1px solid #efe7dd;
     width: 30%;
-    padding: 50px;
+    padding: 25px 50px;
     background-color: white;
     position: fixed;
     top: 50%;
@@ -31,32 +31,6 @@
   border-radius: 4px;
   padding: 0 5px;
   border: 1px solid #e1e1e1;
-}
-.field.active{
-  border-color: #7d2ae8;
-}
-.field i{
-  width: 50px;
-  font-size: 18px;
-  text-align: center;
-}
-.field.active i{
-  color: #7d2ae8;
-}
-.field input{
-  width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
-  font-size: 15px;
-}
-.field button{
-  color: #fff;
-  padding: 5px 18px;
-  background: #7d2ae8;
-}
-.field button:hover{
-  background: #8d39fa;
 }
 
 .save{
