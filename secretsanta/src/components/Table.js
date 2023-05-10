@@ -18,11 +18,11 @@ export default function Table(props){
               </tr>
             </thead>
        {props.members.map(item =>
-          <tbody>
-            <tr>
-              <td className='right_item'>{item.name}</td>
-              <td>{item.email}</td>
-              <td><i onClick={() => openModal(item.id)} className='fas fa-edit'></i></td>
+          <tbody key={item.id}>
+            <tr key={item.id}>
+              <td key={item.id} className='right_item'>{item.name}</td>
+              <td key={item.id}>{item.email}</td>
+              <td key={item.id}><i key={item.id} onClick={() => openModal(item.id)} className='fas fa-edit'></i></td>
             </tr>
           </tbody>  )}
         </table>

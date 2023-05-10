@@ -1,13 +1,20 @@
+import fetchData from "../utils/fetchData";
+
 export default function Icons(props){
 
     function openModal(title, displayIcons = true){
         props.setShow(true);
         props.setTitle(title)
         if(!displayIcons){
-            props.setDisplayInputs(false);
+            props.setInputs([]);
             setTimeout(() => {
                 props.setShow(false);
-                props.setDisplayInputs(true);
+                try{
+                    fetchData('/generateSecretSanta/' + props.group.id, 'GET',);
+                } catch(e){
+                    props.setInputs([]);
+                    props.setTitle(e);
+                }
             }, 2000);
 
         }
