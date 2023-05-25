@@ -14,7 +14,8 @@ export default function Popup(props) {
       const member = {
         id: id,
         name: props.name,
-        email: props.email
+        email: props.email,
+        mobile: '0000',
       }
       fetchData('/edit/' + id, 'PUT', member).then(data => {
         props.setShow(false);
@@ -22,7 +23,8 @@ export default function Popup(props) {
     } else {
       const member = {
         name: props.name,
-        email: props.email
+        email: props.email,
+        mobile: '0000',
       }
       fetchData('/', 'POST', member).then(data => {
         props.setShow(false);

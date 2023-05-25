@@ -17,7 +17,7 @@ export default function Table(props){
                 <th>Email</th>
               </tr>
             </thead>
-       {props.members.map(item =>
+       {props.members && props.members.map(item =>
           <tbody key={item.id}>
             <tr key={item.id}>
               <td key={item.id} className='right_item'>{item.name}</td>

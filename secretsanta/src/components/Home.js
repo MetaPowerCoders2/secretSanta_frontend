@@ -5,38 +5,43 @@ import Popup from './Popup';
 import Table from './Table';
 import Icons from './Icons';
 import fetchData from "../utils/fetchData";
+import Cookies from 'universal-cookie';
+import { useNavigate } from "react-router-dom";
+
 
 export default function Home(){
 
+  const cookies = new Cookies();
+  const navigate = useNavigate();
 
-  const data = {
-    group_name: 'Family',
-    members: [
-      {
-        name: 'sofia',
-        email: "example@gmail.com"
-      },
-      {
-        name: 'lucas',
-        email: "lucas@gmail.com"
-      }
-    ]
-  };
+  // const data = {
+  //   group_name: 'Family',
+  //   members: [
+  //     {
+  //       name: 'sofia',
+  //       email: "example@gmail.com"
+  //     },
+  //     {
+  //       name: 'lucas',
+  //       email: "lucas@gmail.com"
+  //     }
+  //   ]
+  // };
 
-  const totalGroups = [
-    {
-      id: 1,
-      name: "family"
-    },
-    {
-      id: 2,
-      name: 'friends'
-    },
-    {
-      id: 3,
-      name: 'colleagues'
-    }
-  ];
+  // const totalGroups = [
+  //   {
+  //     id: 1,
+  //     name: "family"
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'friends'
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'colleagues'
+  //   }
+  // ];
 
   const popupInputs = [
     {
@@ -55,21 +60,28 @@ export default function Home(){
   },
 ];
 
+  const [user, setUser] = useState(null);
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [group, setGroup] = useState(null);
   const [show, setShow] = useState(false);
   const [id, setId] = useState(null);
   const [title, setTitle] = useState(null);
-  const [groups, setGroups] = useState(data);
-  const [groupsCreated, setGroupsCreated] = useState(totalGroups);
+  const [groups, setGroups] = useState([]);
+  const [groupsCreated, setGroupsCreated] = useState([]);
   const [inputs, setInputs] = useState(popupInputs);
 
   useEffect(() => {
     try{
-      // fetchData('/', 'GET', null).then(data => {
-      //   setGroups(data);
-      // });
+      const user = cookies.get('user');
+      if(!user){
+        navigate("/");
+      }
+      setUser(user);
+      console.log(user.token);
+      fetchData('user/me', 'GET', null, user.token).then(data => {
+        setGroups(data);
+      });
 
       if(!show){
         setInputs(popupInputs)
@@ -85,8 +97,9 @@ export default function Home(){
 
   async function displayGroupInfo(id){
     try{
-      // let data = await fetchData('/' + id, 'GET', null);
-      // setGroupsCreated(data);
+      let data = await fetchData('user/me', 'GET', null, user.token);
+      console.log(data);
+      setGroupsCreated(data);
     }catch(e){
       console.log(e);
     }
@@ -100,10 +113,19 @@ export default function Home(){
         name: 'Name',
         type: 'text',
         placeholder: 'Add your group name here',
-        setValue: () => setGroup()
+        setValue: () => saveNewGroup(group)
       }
     ])
     setShow(true);
+  }
+
+  async function saveNewGroup(group){
+    try{
+      await fetchData('group', 'POST', group);
+      setShow(false);
+    } catch(e){
+      console.log(e);
+    }
   }
 
   return(
@@ -133,10 +155,10 @@ export default function Home(){
     </div>
       <div className="display_menu">
         <div className="display_data">
-       {Object.keys(groups).length === 0 &&
+       {groups.length <= 0 &&
         <h1 className="text">PLEASE SELECT A SECRET SANTA GROUP OR CREATE A NEW ONE</h1>
        }
-       {Object.keys(groups).length > 0 && <>
+       {groups.length > 0 && <>
         <h1 className="text">{groups.group_name}</h1>
           <Table
             members={groups.members}
@@ -144,8 +166,6 @@ export default function Home(){
             setId={setId}
             setTitle={setTitle}
           />
-        </>
-       }
       <Icons
         groups={groups}
         setShow={setShow}
@@ -155,6 +175,8 @@ export default function Home(){
         setEmail={setEmail}
         setName={setName}
        />
+       </>
+       }
        <div className="regalo-navidad">
           {/* <img src={require('../pictures/present.jpg')}/> */}
       </div>

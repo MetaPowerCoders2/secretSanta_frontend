@@ -6,7 +6,7 @@ const cookies = new Cookies();
 
 async function registerUser(userObj) {
   try {
-    return await fetchData("/register", "POST", userObj);
+    return await fetchData("login/register", "POST", userObj);
   } catch (e) {
     console.log(e);
   }
@@ -14,8 +14,8 @@ async function registerUser(userObj) {
 
 async function signIn(userObj) {
   try {
-    let userInfo = await fetchData("/signin", "POST", userObj);
-    cookies.set('userId', userInfo.id);
+    let userInfo = await fetchData("login/signin", "POST", userObj);
+    cookies.set('user', userInfo);
     cookies.set('token', userInfo.token);
     return userInfo;
   } catch (e) {
@@ -26,9 +26,9 @@ async function signIn(userObj) {
 async function signOut(userObj){
   try {
     if(cookies.get('token')){
-      cookies.remove('userId');
+      cookies.remove('user');
       cookies.remove('token');
-      await fetchData("/signout", "POST", userObj);
+      await fetchData("login/signout", "POST", userObj);
     }
   } catch (e) {
     console.log(e);
