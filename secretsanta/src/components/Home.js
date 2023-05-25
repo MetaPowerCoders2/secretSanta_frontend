@@ -78,9 +78,9 @@ export default function Home(){
         navigate("/");
       }
       setUser(user);
-      console.log(user.token);
-      fetchData('user/me', 'GET', null, user.token).then(data => {
-        setGroups(data);
+      fetchData('user/me', 'GET', null, user.token).then(result => {
+        console.log(groups);
+        setGroups(groups);
       });
 
       if(!show){

@@ -1,23 +1,29 @@
+import axios from "axios";
 const localhost = "http://localhost:3000/api/";
 
-export default async function fetchData(route, method, body, token = null) {
-  let response = {};
+// axios.defaults.withCredentials = true;
 
+export default async function fetchData(route, method, body, token) {
+  console.log(token);
   if (!body) {
-      response = await fetch(localhost + route, { method: method });
+    const data =  await axios({
+      method: method,
+              headers: {
+              Authorization: `Bearer ${token}`,
+          },
+      url: localhost + route ,
+    });
+    return data.data;
   } else {
-      console.log(token)
-      response = await fetch(localhost + route, {
-        method: method,
-        headers: {
-          'Content-Type': "application/json",
-          'Access-Control-Allow-Origin': "*",
-          Credentials: 'same-origin',
+const data = await axios({
+  method: method,
+          headers: {
+          "Authorization" : `Bearer ${token}`
       },
-        body: JSON.stringify(body),
-      });
-  }
+  url: localhost + route,
+  data: body,
+});
+return data.data;
 
-  const data = await response.json();
-  return data;
+}
 }
