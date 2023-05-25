@@ -51,8 +51,8 @@ export default function Signin(){
           email:email,
           password: password,
         }
-        console.log(newUser);
         let result = await signIn(newUser);
+        console.log(result);
         if(result.message && result.message !== "User registered successfully! Please signin now!"){
           setError(result.message);
           showModal();
