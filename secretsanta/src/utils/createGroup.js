@@ -5,6 +5,8 @@ export default async function createGroup(group) {
   const cookies = new Cookies();
   const user = cookies.get("user");
 
+  group.members = [];
+
   group.members.push({
     name: user.name,
     email: user.email,

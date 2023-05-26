@@ -52,7 +52,7 @@ export default function Home() {
           setGroupsCreated(result.message.groups);
         }
       });
-      if (!showNewGroup) {
+      if (!showNewGroup | !showEditGroup) {
         setNewGoup(emptyGroup);
       } else if (!showAddMember | !setShowEditMember) {
         setMember(newMember);
