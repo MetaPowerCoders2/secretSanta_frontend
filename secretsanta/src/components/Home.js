@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./Home.css";
-import submitRegister from "../utils/createGroup";
+import createGroup from "../utils/createGroup";
 import submitEditGroup from "../utils/editGroup";
 import NewPopUp from "./NewPopUp";
 import Table from "./Table";
@@ -29,6 +29,7 @@ export default function Home() {
   const [showEditMember, setShowEditMember] = useState(false);
   const [showGenerateEmails, setShowGenerateEmails] = useState(false);
   const [showEditGroup, setShowEditGroup] = useState(false);
+  const [showRemove, setShowRemove] = useState(false);
 
   const [member, setMember] = useState(newMember);
   const [newGroup, setNewGoup] = useState(emptyGroup);
@@ -65,6 +66,7 @@ export default function Home() {
     showEditMember,
     showGenerateEmails,
     showEditGroup,
+    showRemove,
   ]);
 
   async function displayGroupInfo(id) {
@@ -91,13 +93,26 @@ export default function Home() {
         title="Thank you! You sent the emails with the Secret Santa!"
       ></NewPopUp>
       <NewPopUp
+        show={showRemove}
+        setShow={setShowRemove}
+        title="Are you sure you want to remove it?"
+        primary_button={{
+          label: "Remove",
+          on_clicked: () =>
+            removeGroup(groups.id).then(() => {
+              setGroups({});
+              setShowRemove(false);
+            }),
+        }}
+      ></NewPopUp>
+      <NewPopUp
         show={showNewGroup}
         setShow={setShowNewGroup}
         title="Add new Group"
         primary_button={{
           label: "Save",
           on_clicked: () =>
-            submitRegister(newGroup).then(() => setShowNewGroup(false)),
+            createGroup(newGroup).then(() => setShowNewGroup(false)),
         }}
       >
         <NewGroupForm setGroup={setNewGoup} />
@@ -109,7 +124,7 @@ export default function Home() {
         primary_button={{
           label: "Edit",
           on_clicked: () =>
-            submitRegister(groups).then(() => setShowEditGroup(false)),
+            submitEditGroup(groups).then(() => setShowEditGroup(false)),
         }}
       >
         <NewEditGroupForm group={groups} setGroup={setGroups} />
@@ -142,7 +157,12 @@ export default function Home() {
       </NewPopUp>
       <div
         className={`${
-          showNewGroup || showAddMember || showEditMember
+          showNewGroup |
+          showAddMember |
+          showEditMember |
+          showGenerateEmails |
+          showEditGroup |
+          showRemove
             ? "background-modal"
             : null
         }`}
@@ -167,7 +187,7 @@ export default function Home() {
                     {group_item.name}{" "}
                     <i
                       className="fa fa-trash rigth"
-                      onClick={() => removeGroup(group_item.id)}
+                      onClick={() => setShowRemove(true)}
                     ></i>
                   </div>
                 ))}
@@ -197,6 +217,9 @@ export default function Home() {
                   </h3>
                   <h3>
                     <b>Date:</b> {groups.date}
+                  </h3>
+                  <h3>
+                    <b>Location:</b> {groups.location}
                   </h3>
                   <Table
                     members={groups.members}

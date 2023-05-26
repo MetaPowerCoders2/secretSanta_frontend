@@ -1,7 +1,7 @@
 import Cookies from "universal-cookie";
 import fetchData from "../utils/fetchData";
 
-export default async function submitEditMember(group) {
+export default async function createGroup(group) {
   const cookies = new Cookies();
   const user = cookies.get("user");
 
