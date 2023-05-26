@@ -1,22 +1,17 @@
 import Cookies from "universal-cookie";
 import fetchData from "../utils/fetchData";
 
-export default async function submitEditMember(groupName) {
+export default async function submitEditMember(group) {
   const cookies = new Cookies();
   const user = cookies.get("user");
 
-  const member = {
-    name: groupName,
-    maxPrice: "00",
-    members: [
-      {
-        name: user.name,
-        email: user.email,
-        mobile: "1254",
-      },
-    ],
-    location: "",
-    date: new Date(),
-  };
-  return await fetchData("group", "POST", member, user.token);
+  console.log(group);
+
+  group.members.push({
+    name: user.name,
+    email: user.email,
+    mobile: user.mobile,
+  });
+
+  return await fetchData("group", "POST", group, user.token);
 }

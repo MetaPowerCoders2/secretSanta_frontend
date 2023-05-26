@@ -13,6 +13,8 @@ import NewEditMemberForm from "./NewEditMemberForm";
 import submitEditMember from "../utils/editMember";
 import submitAddMember from "../utils/addMember";
 import NewAddMemberForm from "./NewAddMemberForm";
+import generateEmails from "../utils/generateEmails";
+import { emptyGroup, newMember } from "../utils/defaultValues";
 
 export default function Home() {
   const cookies = new Cookies();
@@ -21,21 +23,15 @@ export default function Home() {
   const [showNewGroup, setShowNewGroup] = useState(false);
   const [showAddMember, setShowAddMember] = useState(false);
   const [showEditMember, setShowEditMember] = useState(false);
+  const [showGenerateEmails, setShowGenerateEmails] = useState(false);
 
-  const [member, setMember] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-  });
+  const [member, setMember] = useState(newMember);
+  const [newGroup, setNewGoup] = useState(emptyGroup);
 
   const [user, setUser] = useState(null);
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [group, setGroup] = useState(null);
   const [data, setData] = useState([]);
   const [groups, setGroups] = useState({});
   const [groupsCreated, setGroupsCreated] = useState([]);
-  const [groupName, setGroupName] = useState();
 
   useEffect(() => {
     try {
@@ -52,11 +48,8 @@ export default function Home() {
       });
 
       if (!showNewGroup || !showAddMember || !showEditMember) {
-        setMember({
-          name: "",
-          email: "",
-          mobile: "",
-        });
+        setMember(newMember);
+        setNewGoup(emptyGroup);
       }
     } catch (e) {
       console.log(e);
@@ -72,12 +65,27 @@ export default function Home() {
     }
   }
 
-  function addGroup() {
-    setShowAddMember(true);
+  async function sendEmails() {
+    setShowGenerateEmails(true);
+    generateEmails().then(() => {
+      setShowGenerateEmails(false);
+    });
   }
 
   return (
     <>
+      <NewPopUp
+        show={showGenerateEmails}
+        setShow={setShowGenerateEmails}
+        title="Thank you! You sent the emails with the Secret Santa!"
+        primary_button={{
+          label: "",
+          on_clicked: () =>
+            submitRegister(newGroup).then(() => setShowNewGroup(false)),
+        }}
+      >
+        <NewGroupForm setGroup={setNewGoup} />
+      </NewPopUp>
       <NewPopUp
         show={showNewGroup}
         setShow={setShowNewGroup}
@@ -85,10 +93,10 @@ export default function Home() {
         primary_button={{
           label: "Save",
           on_clicked: () =>
-            submitRegister(groupName).then(() => setShowNewGroup(false)),
+            submitRegister(newGroup).then(() => setShowNewGroup(false)),
         }}
       >
-        <NewGroupForm setGroupName={setGroupName} />
+        <NewGroupForm setGroup={setNewGoup} />
       </NewPopUp>
       <NewPopUp
         show={showAddMember}
@@ -100,7 +108,7 @@ export default function Home() {
             submitAddMember(member, groups).then(() => setShowAddMember(false)),
         }}
       >
-      <NewAddMemberForm setMember={setMember} />
+        <NewAddMemberForm setMember={setMember} />
       </NewPopUp>
       <NewPopUp
         show={showEditMember}
@@ -127,7 +135,10 @@ export default function Home() {
           <div className="lateral_menu">
             <h1 className="text">
               Your Secret Santa{" "}
-              <i className="fa fa-plus-circle add_group" onClick={addGroup}></i>
+              <i
+                className="fa fa-plus-circle add_group"
+                onClick={() => setShowNewGroup(true)}
+              ></i>
             </h1>
             {groupsCreated.length > 0 && (
               <>
@@ -166,7 +177,10 @@ export default function Home() {
                     setShow={setShowEditMember}
                     setMember={setMember}
                   />
-                  <Icons setShowAddMember={setShowAddMember} />
+                  <Icons
+                    generateEmails={sendEmails}
+                    setShowAddMember={setShowAddMember}
+                  />
                 </>
               )}
               <div className="regalo-navidad">
