@@ -11,7 +11,7 @@ export default async function fetchData(route, method, body, token) {
     },
     withCredentials: !token ? false : true,
     url: localhost + route,
-    data: body
+    data: body,
   });
 
   return data.data;

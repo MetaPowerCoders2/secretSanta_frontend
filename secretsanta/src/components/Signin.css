@@ -1,63 +1,63 @@
 .login-page {
-    width: 45%;
-    padding: 9% 0 0;
-    margin: auto;
-  }
-  .form {
-    border-radius: 25px;
-    position: relative;
-    z-index: 1;
-    background: #d8a790;
-    margin: 0 auto 100px;
-    padding: 5% 10%;
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  }
-  .button {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background: #EF4C4E;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-  }
-  .container .info span .fa {
-    color: #EF3B3A;
-  }
+  width: 45%;
+  padding: 9% 0 0;
+  margin: auto;
+}
+.form {
+  border-radius: 25px;
+  position: relative;
+  z-index: 1;
+  background: #d8a790;
+  margin: 0 auto 100px;
+  padding: 5% 10%;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #ef4c4e;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.container .info span .fa {
+  color: #ef3b3a;
+}
 
-  .button-text{
-    padding: 8px;
-    background-color: #0f75ae;
-    text-decoration: none;
-  }
+.button-text {
+  padding: 8px;
+  background-color: #0f75ae;
+  text-decoration: none;
+}
 
-.label{
+.label {
   font-weight: 400;
   display: block;
   margin: 0 0 3px;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   padding: 10px;
 }
-.input{
-    font-family: "Roboto", sans-serif;
-    outline: 0;
-    border-radius: 25px;
-    background: #efe7dd;
-    width: 100%;
-    border: 0;
-    margin: 10px 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
+.input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  border-radius: 25px;
+  background: #efe7dd;
+  width: 100%;
+  border: 0;
+  margin: 10px 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
-h2{
+h2 {
   color: black;
   font-family: "Imperial Script", cursive;
   font-size: clamp(1rem, 2vw, 17rem);
@@ -66,102 +66,105 @@ h2{
   line-height: 0.9;
 }
 
-.bottom{
-    background-color: #3B373C;
-    position: absolute;
-    bottom: 0;
-    border-radius: 1vmin;
-    -webkit-border-radius: 1vmin;
-    -moz-border-radius: 1vmin;
-    -ms-border-radius: 1vmin;
-    -o-border-radius: 1vmin;
+.bottom {
+  background-color: #3b373c;
+  position: absolute;
+  bottom: 0;
+  border-radius: 1vmin;
+  -webkit-border-radius: 1vmin;
+  -moz-border-radius: 1vmin;
+  -ms-border-radius: 1vmin;
+  -o-border-radius: 1vmin;
 }
 
-.greengift{
+.greengift {
   width: 13vmin;
   height: 28vmin;
-  background-color:#70B15E ;
+  background-color: #70b15e;
   position: absolute;
   border-top: 0.8vmin solid #579b3e81;
   border-left: 0.8vmin solid #579b3ea1;
   outline: black solid 6px;
   left: 31.5vmin;
   bottom: 1.2vmin;
-
 }
 
-.tape1{
+.tape1 {
   width: 2.1vmin;
   height: 30.9vmin;
-  background-image: linear-gradient(#fdcb61 ,      #fecb5b);
+  background-image: linear-gradient(#fdcb61, #fecb5b);
   position: absolute;
   bottom: 0.01vmin;
   left: 4.5vmin;
-  border-right:black solid 6px ;
-  border-left: black solid 6px ;
-
+  border-right: black solid 6px;
+  border-left: black solid 6px;
 }
 
-.tape2{
-  width:14vmin ;
-  height:2.1vmin ;
-  background-image: linear-gradient(#faa93f , #fecb5b);
+.tape2 {
+  width: 14vmin;
+  height: 2.1vmin;
+  background-image: linear-gradient(#faa93f, #fecb5b);
   position: absolute;
   top: 10vmin;
-  left:-1vmin;
-  border-top:  black solid 6px ;
-  border-bottom: black solid 6px ;
+  left: -1vmin;
+  border-top: black solid 6px;
+  border-bottom: black solid 6px;
 }
-.line1, .line2, .line3, .line4{
+.line1,
+.line2,
+.line3,
+.line4 {
   width: 0.2vmin;
-  background-color: #3B373C;
+  background-color: #3b373c;
   position: absolute;
 }
-.line1{
+.line1 {
   height: 1.5vmin;
   left: 1.3vmin;
 }
-.line2{
+.line2 {
   height: 1vmin;
   left: 0.8vmin;
 }
-.line3{
-  height:2.5vmin ;
+.line3 {
+  height: 2.5vmin;
   bottom: 0;
   left: 0.4vmin;
 }
-.line4{
+.line4 {
   height: 1.9vmin;
   bottom: 0;
   left: 1.1vmin;
 }
-.line5, .line6, .line7{
-  height:0.2vmin ;
+.line5,
+.line6,
+.line7 {
+  height: 0.2vmin;
   position: absolute;
-  background-color: #3B373C;
+  background-color: #3b373c;
 }
-.line5{
+.line5 {
   width: 1vmin;
   top: 0.4vmin;
 }
-.line6{
+.line6 {
   width: 2.3vmin;
   right: 0;
   top: 0.5vmin;
 }
-.line7{
+.line7 {
   width: 1.3vmin;
   right: 0;
   top: 1vmin;
 }
-.cover{
+.cover {
   width: 15vmin;
   height: 2vmin;
-  background-color:#70B15E ;
+  background-color: #70b15e;
   position: absolute;
-  border-top: 0.8vmin solid #ABD89D;
+  border-top: 0.8vmin solid #abd89d;
   border-left: 0.8vmin solid #579b3ea1;
-  border-bottom: 0.8vmin solid #579B3E;
+  border-bottom: 0.8vmin solid #579b3e;
   outline: black solid 6px;
   border-radius: 0.1vmin;
   top: -3.2vmin;
@@ -171,20 +174,20 @@ h2{
   -ms-border-radius: 0.1vmin;
   -o-border-radius: 0.1vmin;
 }
-.tape3{
+.tape3 {
   width: 3.2vmin;
   height: 3.6vmin;
-  background-image: linear-gradient(#fdcb61 , #fecb5b);
+  background-image: linear-gradient(#fdcb61, #fecb5b);
   position: absolute;
   top: -3.2vmin;
   left: 3.9vmin;
-  border-right:  black solid 6px ;
+  border-right: black solid 6px;
   border-left: black solid 6px;
 }
-.circle{
+.circle {
   width: 3.5vmin;
   height: 4.2vmin;
-  background-color:#F7B45C ;
+  background-color: #f7b45c;
   position: absolute;
   top: -9vmin;
   left: 3.8vmin;
@@ -200,7 +203,7 @@ h2{
 .ribbon1 {
   width: 4vmin;
   height: 5vmin;
-  background-color: #F7B45C;
+  background-color: #f7b45c;
   position: absolute;
   top: -9.8vmin;
   transform: rotate(227deg);
@@ -219,7 +222,7 @@ h2{
 .ribbon2 {
   width: 4vmin;
   height: 5vmin;
-  background-color: #F7B45C;
+  background-color: #f7b45c;
   position: absolute;
   top: -9.8vmin;
   left: -0.9vmin;
@@ -235,10 +238,10 @@ h2{
   -ms-transform: rotate(60deg);
   -o-transform: rotate(60deg);
 }
-.line8{
-  height:0.2vmin ;
+.line8 {
+  height: 0.2vmin;
   position: absolute;
-  background-color: #3B373C;
+  background-color: #3b373c;
   width: 2.1vmin;
   left: 0;
   top: 2vmin;
@@ -248,10 +251,19 @@ h2{
   -ms-transform: rotate(-35deg);
   -o-transform: rotate(-35deg);
 }
-.stripedgift{
+.stripedgift {
   width: 15vmin;
   height: 7vmin;
-  background-image: linear-gradient(135deg, #ef4c4e 25%, #fecb5b 25%, #fecb5b 50%, #ef4c4e 50%, #ef4c4e 75%, #fecb5b 75%, #fecb5b 100%);
+  background-image: linear-gradient(
+    135deg,
+    #ef4c4e 25%,
+    #fecb5b 25%,
+    #fecb5b 50%,
+    #ef4c4e 50%,
+    #ef4c4e 75%,
+    #fecb5b 75%,
+    #fecb5b 100%
+  );
   background-size: 5vmin 5vmin;
   position: absolute;
   border-top: 0.8vmin solid #eef3ec2f;
@@ -266,17 +278,18 @@ h2{
   -ms-border-radius: 0.2vmin;
   -o-border-radius: 0.2vmin;
 }
-.dottedgift{
+.dottedgift {
   width: 22vmin;
   height: 10.9vmin;
-  background-color: #6B9EC0;
-  background-image: radial-gradient(circle, #C7DAE7 25%, transparent 0%), radial-gradient(circle, #C7DAE7 25%, transparent 0%);
+  background-color: #6b9ec0;
+  background-image: radial-gradient(circle, #c7dae7 25%, transparent 0%),
+    radial-gradient(circle, #c7dae7 25%, transparent 0%);
   background-size: 4vmin 4vmin;
   background-position: 0 0, 10vmin 10vmin;
   position: absolute;
   border-top: 0.8vmin solid #5188a57e;
   border-left: 0.8vmin solid #5188a57e;
-  outline:  black solid 6px;
+  outline: black solid 6px;
   left: 34vmin;
   bottom: 1.2vmin;
   z-index: 3;
@@ -286,13 +299,13 @@ h2{
   -ms-border-radius: 0.2vmin;
   -o-border-radius: 0.2vmin;
 }
-.redgift{
+.redgift {
   width: 13vmin;
   height: 25vmin;
-  background-color: #EF4C4E;
+  background-color: #ef4c4e;
   position: absolute;
-  border-top: 0.5vmin solid #DD3A43;
-  border-left: 0.5vmin solid #DD3A43;
+  border-top: 0.5vmin solid #dd3a43;
+  border-left: 0.5vmin solid #dd3a43;
   border: black solid 6px;
   left: 44vmin;
   bottom: 1.2vmin;
@@ -303,58 +316,58 @@ h2{
   -ms-border-radius: 0.2vmin;
   -o-border-radius: 0.2vmin;
 }
-.tape4{
+.tape4 {
   width: 1.5vmin;
   height: 14vmin;
-  background-color: #EEF2FA;
+  background-color: #eef2fa;
   position: absolute;
   top: -0.6vmin;
   left: 4.7vmin;
   border-right: black solid 6px;
   border-left: black solid 6px;
 }
-.tape5{
-  width:13.5vmin ;
-  height:1.5vmin ;
-  background-color: #EEF2FA;
+.tape5 {
+  width: 13.5vmin;
+  height: 1.5vmin;
+  background-color: #eef2fa;
   position: absolute;
   top: 5.2vmin;
-  left:-0.5vmin;
-  border-top: black solid 6px ;
-  border-bottom: black solid 6px ;
+  left: -0.5vmin;
+  border-top: black solid 6px;
+  border-bottom: black solid 6px;
 }
-.line10{
+.line10 {
   width: 0.2vmin;
-  background-color: #3B373C;
+  background-color: #3b373c;
   position: absolute;
   height: 1vmin;
   left: 7.8vmin;
   top: 11.4vmin;
 }
-.line11{
-  height:0.2vmin ;
+.line11 {
+  height: 0.2vmin;
   position: absolute;
-  background-color: #3B373C;
+  background-color: #3b373c;
   width: 2.1vmin;
   right: 0;
   top: 0.8vmin;
 }
-.line12{
-  height:0.2vmin ;
+.line12 {
+  height: 0.2vmin;
   position: absolute;
-  background-color: #3B373C;
+  background-color: #3b373c;
   width: 1.5vmin;
   left: 0.5vmin;
   top: 0.4vmin;
 }
-.circle2{
+.circle2 {
   width: 5.3vmin;
   height: 2.5vmin;
-  background-color:#DBA44A ;
+  background-color: #dba44a;
   position: absolute;
   top: -3.9vmin;
   left: 5vmin;
-  border: black solid 6px ;
+  border: black solid 6px;
   border-radius: 11vmin;
   -webkit-border-radius: 11vmin;
   -moz-border-radius: 11vmin;
@@ -362,14 +375,14 @@ h2{
   -o-border-radius: 11vmin;
   z-index: -1;
 }
-.circle3{
+.circle3 {
   width: 5.3vmin;
   height: 2.9vmin;
-  background-color:#DBA44A ;
+  background-color: #dba44a;
   position: absolute;
   top: -4.3vmin;
   left: -0.5vmin;
-  border: black solid 6px ;
+  border: black solid 6px;
   border-radius: 11vmin;
   -webkit-border-radius: 11vmin;
   -moz-border-radius: 11vmin;
@@ -382,14 +395,14 @@ h2{
   -ms-transform: rotate(15deg);
   -o-transform: rotate(15deg);
 }
-.circle4{
+.circle4 {
   width: 5.3vmin;
   height: 2.9vmin;
-  background-color:#DBA44A ;
+  background-color: #dba44a;
   position: absolute;
   top: -3.9vmin;
   left: 10.3vmin;
-  border: black solid 6px ;
+  border: black solid 6px;
   border-radius: 11vmin;
   -webkit-border-radius: 11vmin;
   -moz-border-radius: 11vmin;
@@ -402,11 +415,11 @@ h2{
   -ms-transform: rotate(-16deg);
   -o-transform: rotate(-16deg);
 }
-.circle5{
+.circle5 {
   width: 3vmin;
   height: 3vmin;
-  background-color: #EDF1F9;
-  border: 0.5vmin solid #3B373C ;
+  background-color: #edf1f9;
+  border: 0.5vmin solid #3b373c;
   border-radius: 11vmin;
   -webkit-border-radius: 11vmin;
   -moz-border-radius: 11vmin;
@@ -417,11 +430,11 @@ h2{
   left: 4.2vmin;
   position: absolute;
 }
-.circle6{
+.circle6 {
   width: 4.5vmin;
   height: 1.9vmin;
-  background-color: #EDF1F9;
-  border:0.5vmin solid #3B373C ;
+  background-color: #edf1f9;
+  border: 0.5vmin solid #3b373c;
   border-radius: 5vmin;
   -webkit-border-radius: 5vmin;
   -moz-border-radius: 5vmin;
@@ -437,11 +450,11 @@ h2{
   -ms-transform: rotate(-12deg);
   -o-transform: rotate(-12deg);
 }
-.circle7{
+.circle7 {
   width: 4.5vmin;
   height: 1.9vmin;
-  background-color: #EDF1F9;
-  border:0.5vmin solid #3B373C ;
+  background-color: #edf1f9;
+  border: 0.5vmin solid #3b373c;
   border-radius: 5vmin;
   -webkit-border-radius: 5vmin;
   -moz-border-radius: 5vmin;
@@ -457,10 +470,10 @@ h2{
   -ms-transform: rotate(12deg);
   -o-transform: rotate(12deg);
 }
-.ball{
+.ball {
   width: 5.5vmin;
   height: 5.5vmin;
-  background-color:#EF4C4E ;
+  background-color: #ef4c4e;
   border: black solid 6px;
   position: absolute;
   border-radius: 50%;
@@ -470,12 +483,14 @@ h2{
   -o-border-radius: 50%;
   right: 7.5vmin;
   bottom: 0.9vmin;
-  box-shadow:inset 0.2vmin 0.4vmin 0vmin 0px #ff8d93;
+  box-shadow: inset 0.2vmin 0.4vmin 0vmin 0px #ff8d93;
 }
-.smolball1, .smolball2, .smolball3{
+.smolball1,
+.smolball2,
+.smolball3 {
   width: 0.6vmin;
   height: 0.6vmin;
-  background-color: #FDCA5B;
+  background-color: #fdca5b;
   border: black solid 3px;
   position: absolute;
   border-radius: 50%;
@@ -484,22 +499,22 @@ h2{
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
-.smolball1{
+.smolball1 {
   left: 0.5vmin;
   bottom: 2.7vmin;
 }
-.smolball2{
+.smolball2 {
   left: 1.7vmin;
   bottom: 1.2vmin;
 }
-.smolball3{
+.smolball3 {
   left: 3.5vmin;
   bottom: 0.6vmin;
 }
-.dot{
+.dot {
   width: 0.9vmin;
   height: 1.3vmin;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   position: absolute;
   border-radius: 48%;
   -webkit-border-radius: 48%;
@@ -514,10 +529,10 @@ h2{
   -ms-transform: rotate(60deg);
   -o-transform: rotate(60deg);
 }
-.topv{
+.topv {
   width: 2.1vmin;
   height: 2.5vmin;
-  background-color: #3B373C;
+  background-color: #3b373c;
   border-top-left-radius: 40%;
   border-top-right-radius: 40%;
   position: absolute;
@@ -529,14 +544,14 @@ h2{
   -ms-transform: rotate(33deg);
   -o-transform: rotate(33deg);
   z-index: -3;
-  color: #5C5A60;
+  color: #5c5a60;
   text-align: center;
   font-weight: bolder;
 }
-.toph{
+.toph {
   width: 1.2vmin;
   height: 3.5vmin;
-  background-color: #3B373C;
+  background-color: #3b373c;
   border-radius: 40% 40% 40% 40%;
   position: absolute;
   left: 4.6vmin;
@@ -552,59 +567,63 @@ h2{
   -ms-border-radius: 40% 40% 40% 40%;
   -o-border-radius: 40% 40% 40% 40%;
 }
-.de1, .de2, .de3, .de4,.de5, .de6{
+.de1,
+.de2,
+.de3,
+.de4,
+.de5,
+.de6 {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   position: absolute;
-
 }
-.de1{
+.de1 {
   width: 0.8vmin;
   height: 0.8vmin;
   top: 38vmin;
-  border: 0.5vmin solid #FFDEC2;
+  border: 0.5vmin solid #ffdec2;
 }
-.de2{
+.de2 {
   width: 0.4vmin;
   height: 0.3vmin;
   top: 20vmin;
-  border: 0.5vmin solid #FF7775 ;
+  border: 0.5vmin solid #ff7775;
 }
-.de3{
+.de3 {
   width: 0.9vmin;
   height: 0.9vmin;
   top: 12vmin;
   left: 48vmin;
-  border: 0.3vmin solid #FF7775 ;
+  border: 0.3vmin solid #ff7775;
 }
-.de4{
+.de4 {
   width: 0.5vmin;
   height: 0.5vmin;
-  border: 0.6vmin solid #FFA85E ;
+  border: 0.6vmin solid #ffa85e;
   left: 57vmin;
   top: 10vmin;
 }
-.de5{
+.de5 {
   width: 0.8vmin;
   height: 0.8vmin;
   top: 25vmin;
   left: 60vmin;
-  border: 0.5vmin solid #FFDEC2;
+  border: 0.5vmin solid #ffdec2;
 }
-.de6{
+.de6 {
   width: 0.5vmin;
   height: 0.5vmin;
-  border: 0.4vmin solid #FFA85E ;
+  border: 0.4vmin solid #ffa85e;
   left: 11vmin;
   top: 26vmin;
 }
 
 .merry-xmas {
   color: white;
-  font-family: 'Mountains of Christmas';
+  font-family: "Mountains of Christmas";
   font-size: 3em;
   text-shadow: 2px 2px 0 #d42426;
 }

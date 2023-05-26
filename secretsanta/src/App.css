@@ -1,39 +1,39 @@
 body {
-    background: #efe7dd;
-    font-family: "Roboto", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  background: #efe7dd;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-.background-modal{
-    width: 100%;
-    height: 100vh;
-    color: brown;
-    opacity: 20%;
-  }
+.background-modal {
+  width: 100%;
+  height: 100vh;
+  color: brown;
+  opacity: 20%;
+}
 
 i {
-    z-index: 11!important;
-    cursor: pointer;
-  }
+  z-index: 11 !important;
+  cursor: pointer;
+}
 
-  .left{
-    text-align: left;
-  }
+.left {
+  text-align: left;
+}
 
-  .rigth{
-    text-align: right;
-  }
+.rigth {
+  text-align: right;
+}
 
-  .center{
-    text-align: center;
-    text-align: center;
-    justify-content: center;
-    margin: auto;
-  }
+.center {
+  text-align: center;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+}
 
-  .cursor_pointer{
-    cursor: pointer;
-  }
+.cursor_pointer {
+  cursor: pointer;
+}
 
-  @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
