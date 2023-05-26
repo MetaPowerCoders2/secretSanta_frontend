@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 import NewGroupForm from "./NewGroupForm";
 import NewEditMemberForm from "./NewEditMemberForm";
 import submitEditMember from "../utils/editMember";
+import submitAddMember from "../utils/addMember";
+import NewAddMemberForm from "./NewAddMemberForm";
 
 export default function Home() {
   const cookies = new Cookies();
@@ -23,15 +25,13 @@ export default function Home() {
   const [member, setMember] = useState({
     name: "",
     email: "",
-    mobile: "123",
+    mobile: "",
   });
 
   const [user, setUser] = useState(null);
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [group, setGroup] = useState(null);
-  const [id, setId] = useState(null);
-  const [title, setTitle] = useState(null);
   const [data, setData] = useState([]);
   const [groups, setGroups] = useState({});
   const [groupsCreated, setGroupsCreated] = useState([]);
@@ -51,12 +51,13 @@ export default function Home() {
         }
       });
 
-      // if (!show) {
-      //   setId(null);
-      //   setName(null);
-      //   setEmail(null);
-      //   setGroup(null);
-      // }
+      if (!showNewGroup || !showAddMember || !showEditMember) {
+        setMember({
+          name: "",
+          email: "",
+          mobile: "",
+        });
+      }
     } catch (e) {
       console.log(e);
     }
@@ -96,10 +97,10 @@ export default function Home() {
         primary_button={{
           label: "Add",
           on_clicked: () =>
-            submitRegister(groupName).then(() => setShowAddMember(false)),
+            submitAddMember(member, groups).then(() => setShowAddMember(false)),
         }}
       >
-        <NewGroupForm setGroupName={setGroupName} />
+      <NewAddMemberForm setMember={setMember} />
       </NewPopUp>
       <NewPopUp
         show={showEditMember}
@@ -154,21 +155,18 @@ export default function Home() {
                 <>
                   <h1 className="text">{groups.name}</h1>
 
-                  <h3><b>Max Budget:</b> £{groups.maxPrice}</h3>
-                  <h3><b>Date:</b> {groups.date}</h3>
+                  <h3>
+                    <b>Max Budget:</b> £{groups.maxPrice}
+                  </h3>
+                  <h3>
+                    <b>Date:</b> {groups.date}
+                  </h3>
                   <Table
                     members={groups.members}
                     setShow={setShowEditMember}
                     setMember={setMember}
                   />
-                  <Icons
-                    id={id}
-                    groups={groups}
-                    setShow={setShowAddMember}
-                    setId={setId}
-                    setEmail={setEmail}
-                    setName={setName}
-                  />
+                  <Icons setShowAddMember={setShowAddMember} />
                 </>
               )}
               <div className="regalo-navidad">
