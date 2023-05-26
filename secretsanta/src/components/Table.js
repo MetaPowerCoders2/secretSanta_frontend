@@ -15,16 +15,15 @@ export default function Table(props) {
         </tr>
       </thead>
       {props.members &&
-        props.members.map((item) => (
-          <tbody key={item.id}>
+        props.members.map((item, index) => (
+          <tbody key={index}>
             <tr key={item.id}>
-              <td key={item.id} className="right_item">
+              <td className="right_item">
                 {item.name}
               </td>
-              <td key={item.id}>{item.email}</td>
-              <td key={item.id}>
+              <td >{item.email}</td>
+              <td >
                 <i
-                  key={item.id}
                   onClick={() => openModal(item)}
                   className="fas fa-edit"
                 ></i>

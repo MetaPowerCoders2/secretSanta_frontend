@@ -23,6 +23,9 @@ i {
 
 .rigth {
   text-align: right;
+  margin: auto;
+  float: right;
+  padding-left: 1em;
 }
 
 .center {

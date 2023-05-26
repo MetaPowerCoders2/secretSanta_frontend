@@ -5,8 +5,6 @@ export default async function submitEditMember(group) {
   const cookies = new Cookies();
   const user = cookies.get("user");
 
-  console.log(group);
-
   group.members.push({
     name: user.name,
     email: user.email,

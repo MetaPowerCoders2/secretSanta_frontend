@@ -9,7 +9,7 @@ const emptyGroup = {
 const newMember = {
   name: "",
   email: "",
-  mobile: "",
+  mobile: 1234,
 };
 
 export { emptyGroup, newMember };
