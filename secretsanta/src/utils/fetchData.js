@@ -2,7 +2,7 @@ import axios from "axios";
 const localhost = "http://localhost:3005/api/";
 
 export default async function fetchData(route, method, body, token) {
-  if (body) {
+  if(body){
     const data = await axios({
       method: method,
       headers: {
@@ -30,4 +30,5 @@ export default async function fetchData(route, method, body, token) {
 
     return data.data;
   }
+
 }
