@@ -1,5 +1,5 @@
 import axios from "axios";
-const localhost = "http://localhost:3005/api/";
+const localhost = "https://secretsantabackend-production.up.railway.app/api/";
 
 export default async function fetchData(route, method, body, token) {
   if (body) {
