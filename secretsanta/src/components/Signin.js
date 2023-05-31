@@ -82,12 +82,14 @@ export default function Signin() {
     }, 2000);
   }
 
-  function redirectSignIn() {
+  function redirectSignIn(e) {
+    e.preventDefault();
     setIslogin(false);
     navigate("/");
   }
 
-  function redirectRegister() {
+  function redirectRegister(e) {
+    e.preventDefault();
     setIslogin(true);
     navigate("/register");
   }
@@ -131,7 +133,7 @@ export default function Signin() {
                 Not registered?{" "}
                 <button
                   className="button-text"
-                  onClick={() => redirectRegister()}
+                  onClick={(e) => redirectRegister(e)}
                 >
                   Create an account
                 </button>
@@ -142,7 +144,7 @@ export default function Signin() {
                 Already registered?{" "}
                 <button
                   className="button-text"
-                  onClick={() => redirectSignIn()}
+                  onClick={(e) => redirectSignIn(e)}
                 >
                   Login now
                 </button>
