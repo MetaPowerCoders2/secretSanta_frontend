@@ -1,31 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-.inline{
+.inline {
   display: flex;
   justify-content: space-evenly;
   text-align: center;
   align-items: center;
 }
-.popup{
-    z-index: 9;
-    border: 1px solid #efe7dd;
-    width: 30%;
-    padding: 25px 50px;
-    background-color: white;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.popup {
+  z-index: 9;
+  border: 1px solid #efe7dd;
+  width: 30%;
+  padding: 25px 50px;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.popup .content{
+.popup .content {
   margin: 20px 0;
 }
-.content p{
+.content p {
   font-size: 16px;
 }
-.content .field{
+.content .field {
   margin: 12px 0 -5px 0;
   height: 45px;
   border-radius: 4px;
@@ -33,13 +32,12 @@
   border: 1px solid #e1e1e1;
 }
 
-.save{
+.save {
   background-color: #0f75ae;
 }
 
-.close{
+.close {
 }
-
 
 button {
   border-radius: 1rem;
@@ -49,7 +47,7 @@ button {
   background: #ee771c;
   border: 0;
   padding: 15px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;

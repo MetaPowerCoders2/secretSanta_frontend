@@ -1,8 +1,7 @@
 import fetchData from "./fetchData";
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
-
 
 async function registerUser(userObj) {
   try {
@@ -15,19 +14,19 @@ async function registerUser(userObj) {
 async function signIn(userObj) {
   try {
     let userInfo = await fetchData("login/signin", "POST", userObj);
-    cookies.set('user', userInfo);
-    cookies.set('token', userInfo.token);
+    cookies.set("user", userInfo);
+    cookies.set("token", userInfo.token);
     return userInfo;
   } catch (e) {
     console.log(e);
   }
 }
 
-async function signOut(userObj){
+async function signOut(userObj) {
   try {
-    if(cookies.get('token')){
-      cookies.remove('user');
-      cookies.remove('token');
+    if (cookies.get("token")) {
+      cookies.remove("user");
+      cookies.remove("token");
       await fetchData("login/signout", "POST", userObj);
     }
   } catch (e) {
@@ -35,4 +34,4 @@ async function signOut(userObj){
   }
 }
 
-export {signIn, registerUser, signOut}
+export { signIn, registerUser, signOut };
