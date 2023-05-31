@@ -78,6 +78,16 @@ export default function Home() {
     }
   }
 
+  async function logout() {
+    try {
+      fetchData("/login/signout", "GET", null, user.token).then(() => {
+        navigate("/");
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   async function sendEmails() {
     setShowGenerateEmails(true);
     generateEmails(groups).then(() => {
@@ -196,6 +206,7 @@ export default function Home() {
             )}
           </div>
           <div className="display_menu">
+          <i class="fa fa-user rigth logout tooltip" onClick={logout}><span class="tooltiptext left">logout</span></i>
             <div className="display_data">
               {Object.keys(groups).length <= 0 && (
                 <h1 className="text">

@@ -21,6 +21,13 @@ i {
   text-align: left;
 }
 
+.logout{
+  font-size: 30px;
+  color: #19a7ce;
+  margin-right: 10px!important;
+  margin-top: 10px!important;
+}
+
 .rigth {
   text-align: right;
   margin: auto;
@@ -590,4 +597,31 @@ i {
   font-family: "Mountains of Christmas";
   font-size: 3em;
   text-shadow: 2px 2px 0 #d42426;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 50px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  top: 98%;
+  left: 140%;
+  margin-left: -60px;
+  position: absolute;
+  z-index: 1;
+  font-size: 17px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
