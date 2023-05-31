@@ -206,7 +206,9 @@ export default function Home() {
             )}
           </div>
           <div className="display_menu">
-          <i className="fa fa-user rigth logout tooltip" onClick={logout}><span className="tooltiptext left">logout</span></i>
+            <i className="fa fa-user rigth logout tooltip" onClick={logout}>
+              <span className="tooltiptext left">logout</span>
+            </i>
             <div className="display_data">
               {Object.keys(groups).length <= 0 && (
                 <h1 className="text">
