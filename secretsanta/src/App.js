@@ -5,7 +5,7 @@ import Signin from "./components/Signin";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/">
           <Route index element={<Signin />} />
