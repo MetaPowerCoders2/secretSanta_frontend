@@ -1,0 +1,78 @@
+.login-page {
+  width: 45%;
+  padding: 9% 0 0;
+  margin: auto;
+}
+.form {
+  border-radius: 25px;
+  position: relative;
+  z-index: 1;
+  background: #d8a790;
+  margin: 0 auto 100px;
+  padding: 5% 10%;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #ef4c4e;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.container .info span .fa {
+  color: #ef3b3a;
+}
+
+.button-text {
+  padding: 8px;
+  background-color: #0f75ae;
+  text-decoration: none;
+}
+
+.label {
+  font-weight: 400;
+  display: block;
+  margin: 0 0 3px;
+  letter-spacing: 0.5px;
+  padding: 10px;
+}
+.input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  border-radius: 25px;
+  background: #efe7dd;
+  width: 100%;
+  border: 0;
+  margin: 10px 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+h2 {
+  color: black;
+  font-family: "Imperial Script", cursive;
+  font-size: clamp(1rem, 2vw, 17rem);
+  text-transform: capitalize;
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.bottom {
+  background-color: #3b373c;
+  position: absolute;
+  bottom: 0;
+  border-radius: 1vmin;
+  -webkit-border-radius: 1vmin;
+  -moz-border-radius: 1vmin;
+  -ms-border-radius: 1vmin;
+  -o-border-radius: 1vmin;
+}
