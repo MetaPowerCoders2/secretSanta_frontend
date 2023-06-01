@@ -111,11 +111,12 @@ export default function Home() {
 
   return (
     <>
+    {!error &&
       <NewPopUp
         show={showGenerateEmails}
         setShow={setShowGenerateEmails}
         title="Thank you! You sent the emails with the Secret Santa!"
-      ></NewPopUp>
+      ></NewPopUp>}
        <NewPopUp
         show={showError}
         setShow={setShowError}
@@ -129,7 +130,7 @@ export default function Home() {
           label: "Remove",
           on_clicked: () =>
             removeMember(member, groups).then(() => {
-              setShowRemove(false);
+              setShowRemoveMember(false);
             }),
         }}
       ></NewPopUp>
