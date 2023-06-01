@@ -60,8 +60,6 @@ export default function Home() {
       });
       if (!showNewGroup | !showEditGroup | !showRemove) {
         setNewGoup(emptyGroup);
-      } else if (!showAddMember | !showEditMember | !showRemoveMember | !showGenerateEmails) {
-        setMember(newMember);
       } else if(!showError)
       {
         setError(null)
@@ -130,6 +128,7 @@ export default function Home() {
           label: "Remove",
           on_clicked: () =>
             removeMember(member, groups).then(() => {
+              setMember(newMember);
               setShowRemoveMember(false);
             }),
         }}
@@ -178,7 +177,11 @@ export default function Home() {
         primary_button={{
           label: "Add",
           on_clicked: () =>
-            submitAddMember(member, groups).then(() => setShowAddMember(false)),
+            submitAddMember(member, groups).then(() => {
+              setMember(newMember);
+              setShowAddMember(false)
+
+            }),
         }}
       >
         <NewAddMemberForm setMember={setMember} />

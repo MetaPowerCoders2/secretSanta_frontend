@@ -11,7 +11,8 @@ export default function NewAddMemberForm(props) {
           name="name"
           placeholder="Type your Member name"
           onChange={(e) =>
-            props.setMember(() => ({
+            props.setMember((prevState) => ({
+              ...prevState,
               name: e.target.value,
             }))
           }
@@ -22,7 +23,8 @@ export default function NewAddMemberForm(props) {
           type="text"
           placeholder="Type your Member email"
           onChange={(e) =>
-            props.setMember(() => ({
+            props.setMember((prevState) => ({
+              ...prevState,
               email: e.target.value,
             }))
           }
