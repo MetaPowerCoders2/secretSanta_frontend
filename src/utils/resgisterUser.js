@@ -27,7 +27,7 @@ async function signOut(userObj) {
     if (cookies.get("token")) {
       cookies.remove("user");
       cookies.remove("token");
-      await fetchData("login/signout", "POST", userObj);
+      await fetchData("login/signout", "GET");
     }
   } catch (e) {
     console.log(e);
