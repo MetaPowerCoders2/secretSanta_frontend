@@ -6,6 +6,11 @@ export default function Table(props) {
     props.setShow(true);
   }
 
+  function removeMember(member){
+    props.setMember(member);
+    props.setShowRemove(true)
+  }
+
   return (
     <table>
       <thead>
@@ -22,6 +27,9 @@ export default function Table(props) {
               <td>{item.email}</td>
               <td>
                 <i onClick={() => openModal(item)} className="fa fa-edit"></i>
+              </td>
+              <td>
+                <i className="fa fa-trash rigth" onClick={() => removeMember(item)}></i>
               </td>
             </tr>
           </tbody>

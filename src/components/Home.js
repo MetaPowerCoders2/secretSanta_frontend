@@ -18,6 +18,7 @@ import submitAddMember from "../utils/addMember";
 import NewAddMemberForm from "./NewAddMemberForm";
 import generateEmails from "../utils/generateEmails";
 import removeGroup from "../utils/removeGroup";
+import removeMember from '../utils/removeMember';
 
 import { emptyGroup, newMember } from "../utils/defaultValues";
 
@@ -31,6 +32,7 @@ export default function Home() {
   const [showGenerateEmails, setShowGenerateEmails] = useState(false);
   const [showEditGroup, setShowEditGroup] = useState(false);
   const [showRemove, setShowRemove] = useState(false);
+  const [showRemoveMember, setshowRemoveMember] = useState(false);
 
   const [member, setMember] = useState(newMember);
   const [newGroup, setNewGoup] = useState(emptyGroup);
@@ -107,6 +109,18 @@ export default function Home() {
       <NewPopUp
         show={showRemove}
         setShow={setShowRemove}
+        title="Are you sure you want to remove it?"
+        primary_button={{
+          label: "Remove",
+          on_clicked: () =>
+            removeMember(member, group).then(() => {
+              setShowRemove(false);
+            }),
+        }}
+      ></NewPopUp>
+            <NewPopUp
+        show={showRemoveMember}
+        setShow={setshowRemoveMember}
         title="Are you sure you want to remove it?"
         primary_button={{
           label: "Remove",
@@ -240,6 +254,7 @@ export default function Home() {
                     members={groups.members}
                     setShow={setShowEditMember}
                     setMember={setMember}
+                    setShowRemove={setShowRemoveMember}
                   />
                   <Icons
                     generateEmails={sendEmails}

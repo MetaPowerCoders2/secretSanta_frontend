@@ -1,17 +1,11 @@
 import Cookies from "universal-cookie";
 import fetchData from "../utils/fetchData";
 
-export default async function submitEditMember(member, group) {
+export default async function removeMember(member, group) {
   const cookies = new Cookies();
   const user = cookies.get("user");
 
-  group.members = group.members.map((item) => {
-    if (item.id === member.id) {
-      return member;
-    } else {
-      return item;
-    }
-  });
+  group.members = group.members.filter((item) => item.id !== member.id);
 
   return await fetchData("group/" + group.id, "PUT", group, user.token);
 }
