@@ -45,6 +45,7 @@ export default function Home() {
       const user = cookies.get("user");
       if (!user) {
         navigate("/");
+        return;
       }
       setUser(user);
       fetchData("user/me", "GET", null, user.token).then((result) => {
