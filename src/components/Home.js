@@ -7,6 +7,7 @@ import NewPopUp from "./NewPopUp";
 import Table from "./Table";
 import Icons from "./Icons";
 import fetchData from "../utils/fetchData";
+import { signOut } from '../utils/resgisterUser';
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 import NewGroupForm from "./NewGroupForm";
@@ -80,8 +81,8 @@ export default function Home() {
 
   async function logout() {
     try {
-      fetchData("/login/signout", "GET", null, user.token).then(() => {
-        navigate("/");
+      signOut(user.token).then(() => {
+      navigate("/");
       });
     } catch (e) {
       console.log(e);
@@ -220,7 +221,7 @@ export default function Home() {
                   <h1 className="text">
                     {groups.name}{" "}
                     <i
-                      className="fas fa-edit"
+                      className="fa fa-edit"
                       onClick={() => setShowEditGroup(true)}
                     ></i>
                   </h1>

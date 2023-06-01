@@ -14,20 +14,20 @@ async function registerUser(userObj) {
 async function signIn(userObj) {
   try {
     let userInfo = await fetchData("login/signin", "POST", userObj);
-    cookies.set("user", userInfo);
-    cookies.set("token", userInfo.token);
+    cookies.set("user", userInfo, { domain: ".railway.app" });
+    cookies.set("token", userInfo.token , { domain: ".railway.app" });
     return userInfo;
   } catch (e) {
     console.log(e);
   }
 }
 
-async function signOut(userObj) {
+async function signOut(token) {
   try {
     if (cookies.get("token")) {
       cookies.remove("user");
       cookies.remove("token");
-      await fetchData("login/signout", "POST", userObj);
+      await fetchData("login/signout", "GET", null, token);
     }
   } catch (e) {
     console.log(e);

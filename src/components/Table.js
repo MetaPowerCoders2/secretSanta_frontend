@@ -21,7 +21,7 @@ export default function Table(props) {
               <td className="right_item">{item.name}</td>
               <td>{item.email}</td>
               <td>
-                <i onClick={() => openModal(item)} className="fas fa-edit"></i>
+                <i onClick={() => openModal(item)} className="fa fa-edit"></i>
               </td>
             </tr>
           </tbody>
