@@ -54,7 +54,6 @@ export default function Signin() {
           password: password,
         };
         let result = await signIn(newUser);
-        console.log(result);
         if (
           result.message &&
           result.message !== "User registered successfully! Please signin now!"
