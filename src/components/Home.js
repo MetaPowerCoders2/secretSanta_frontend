@@ -193,9 +193,10 @@ export default function Home() {
         primary_button={{
           label: "Edit",
           on_clicked: () =>
-            submitEditMember(member, groups).then(() =>
+            submitEditMember(member, groups).then(() => {
+              setMember(newMember);
               setShowEditMember(false)
-            ),
+            }),
         }}
       >
         <NewEditMemberForm member={member} setMember={setMember} />
