@@ -7,8 +7,8 @@ export default async function submitAddMember(group) {
 
   return await fetchData(
     "group/" + group.id + "/send",
-    "GET",
-    group,
+    "POST",
+    group.members,
     user.token
   );
 }
