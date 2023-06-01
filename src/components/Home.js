@@ -58,9 +58,9 @@ export default function Home() {
           setGroupsCreated(result.message.groups);
         }
       });
-      if (!showNewGroup | !showEditGroup) {
+      if (!showNewGroup | !showEditGroup | !showRemove) {
         setNewGoup(emptyGroup);
-      } else if (!showAddMember | !setShowEditMember | !showRemoveMember) {
+      } else if (!showAddMember | !showEditMember | !showRemoveMember | !showGenerateEmails) {
         setMember(newMember);
       } else if(!showError)
       {
