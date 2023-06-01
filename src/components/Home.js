@@ -32,11 +32,13 @@ export default function Home() {
   const [showGenerateEmails, setShowGenerateEmails] = useState(false);
   const [showEditGroup, setShowEditGroup] = useState(false);
   const [showRemove, setShowRemove] = useState(false);
-  const [showRemoveMember, setshowRemoveMember] = useState(false);
+  const [showRemoveMember, setShowRemoveMember] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const [member, setMember] = useState(newMember);
   const [newGroup, setNewGoup] = useState(emptyGroup);
 
+  const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
   const [data, setData] = useState([]);
   const [groups, setGroups] = useState({});
@@ -58,11 +60,15 @@ export default function Home() {
       });
       if (!showNewGroup | !showEditGroup) {
         setNewGoup(emptyGroup);
-      } else if (!showAddMember | !setShowEditMember) {
+      } else if (!showAddMember | !setShowEditMember | !showRemoveMember) {
         setMember(newMember);
+      } else if(!showError)
+      {
+        setError(null)
       }
     } catch (e) {
-      console.log(e);
+      setError(e.message);
+      setShowError(true);
     }
   }, [
     showNewGroup,
@@ -71,6 +77,8 @@ export default function Home() {
     showGenerateEmails,
     showEditGroup,
     showRemove,
+    showRemoveMember,
+    showError
   ]);
 
   async function displayGroupInfo(id) {
@@ -78,7 +86,8 @@ export default function Home() {
       let selectedGroup = groupsCreated.filter((x) => x.id === id);
       setGroups(selectedGroup[0]);
     } catch (e) {
-      console.log(e);
+      setError(e.message);
+      setShowError(true);
     }
   }
 
@@ -88,7 +97,8 @@ export default function Home() {
       navigate("/");
       });
     } catch (e) {
-      console.log(e);
+      setError(e.message);
+      setShowError(true);
     }
   }
 
@@ -106,21 +116,26 @@ export default function Home() {
         setShow={setShowGenerateEmails}
         title="Thank you! You sent the emails with the Secret Santa!"
       ></NewPopUp>
+       <NewPopUp
+        show={showError}
+        setShow={setShowError}
+        title={error}
+      ></NewPopUp>
       <NewPopUp
-        show={showRemove}
-        setShow={setShowRemove}
+        show={showRemoveMember}
+        setShow={setShowRemoveMember}
         title="Are you sure you want to remove it?"
         primary_button={{
           label: "Remove",
           on_clicked: () =>
-            removeMember(member, group).then(() => {
+            removeMember(member, groups).then(() => {
               setShowRemove(false);
             }),
         }}
       ></NewPopUp>
-            <NewPopUp
-        show={showRemoveMember}
-        setShow={setshowRemoveMember}
+      <NewPopUp
+        show={showRemove}
+        setShow={setShowRemove}
         title="Are you sure you want to remove it?"
         primary_button={{
           label: "Remove",
