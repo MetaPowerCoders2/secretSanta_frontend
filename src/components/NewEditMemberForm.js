@@ -2,7 +2,6 @@ import "./Popup.css";
 import Input from "./Input";
 
 export default function NewEditMemberForm(props) {
-  console.log(props);
   return (
     <form className="login-form">
       <div className="content">
