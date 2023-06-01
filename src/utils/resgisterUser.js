@@ -22,12 +22,12 @@ async function signIn(userObj) {
   }
 }
 
-async function signOut(userObj) {
+async function signOut(token) {
   try {
     if (cookies.get("token")) {
       cookies.remove("user");
       cookies.remove("token");
-      await fetchData("login/signout", "GET");
+      await fetchData("login/signout", "GET", null, token);
     }
   } catch (e) {
     console.log(e);
