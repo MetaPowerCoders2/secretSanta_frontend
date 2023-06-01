@@ -220,7 +220,7 @@ export default function Home() {
                   <h1 className="text">
                     {groups.name}{" "}
                     <i
-                      className="fas fa-edit"
+                      className="fa fa-edit"
                       onClick={() => setShowEditGroup(true)}
                     ></i>
                   </h1>
